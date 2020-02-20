@@ -1,6 +1,6 @@
 ### 167. Two Sum II - Input array is sorted
 
-```python  
+```python
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         index1 = 0
@@ -13,4 +13,4 @@ class Solution:
                 index2 -= 1
             total = numbers[index1] + numbers[index2]
         return [index1+1, index2+1]
- ```  
+```
