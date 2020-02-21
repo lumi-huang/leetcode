@@ -39,4 +39,21 @@ class Solution:
 
 ### 127. Word Ladder
 ```python
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0
+        wordList = set(wordList)
+        queue = collections.deque([(beginWord, 1)])
+        while queue:
+            word, step = queue.popleft()
+            if word == endWord:
+                return step
+            for i in range(len(word)):
+                for char in 'abcdefghijklmnopqrstuvwxyz':
+                    trans_word = word[0:i]+char+word[i+1:]
+                    if trans_word in wordList:
+                        queue.append((trans_word, step+1))
+                        wordList.remove(trans_word)
+        return 0
 ```
