@@ -17,3 +17,22 @@ class Solution:
                     queue.append((x, y, d+1))
         return -1
 ```
+
+### 279. Perfect Squares
+```python
+class Solution:
+    def numSquares(self, n: int) -> int:
+        queue = collections.deque([(0, 0)])
+        visited = set()
+        while queue:
+            i, step = queue.popleft()
+            for j in range(n+1):
+                sum_square = i+j*j
+                if sum_square == n:
+                    return step+1
+                if sum_square > n:
+                    break
+                if sum_square not in visited:
+                    visited.add(sum_square)
+                    queue.append((sum_square, step+1))
+```
