@@ -77,3 +77,24 @@ class Solution(object):
                   for r in range(len(grid))
                   for c in range(len(grid[0])))
 ```
+### 200. Number of Islands
+```python
+class Solution(object):
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        
+        def dfs(r,c):
+            
+            if 0 <= r < len(grid) and 0 <= c < len(grid[0]) and grid[r][c] == "1":
+                grid[r][c] = "0"
+                dfs(r+1, c), dfs(r-1, c), dfs(r, c-1), dfs(r, c+1)
+                return 1
+            return 0
+        
+        return(sum(dfs(r, c)
+                  for r in range(len(grid))
+                  for c in range(len(grid[0]))))
+```
