@@ -22,3 +22,18 @@ from cinema
 where mod(id, 2) = 1 and description != 'boring'
 order by rating desc; 
 ```
+
+### 182. Duplicate Emails
+```sql
+select Email
+from (select Email, count(Id) as num
+     from Person
+     group by Email) t
+where t.num > 1;
+```
+```sql
+select email
+from person
+group by email
+having count(id) > 1;
+```
