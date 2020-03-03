@@ -84,3 +84,12 @@ where (e.DepartmentId, e.Salary) in
 from Employee
 group by DepartmentId);
 ```
+
+### 176. Second Highest Salary
+```sql
+select (select salary
+from (select salary, rownum as rnow
+      from (select distinct(salary) as salary from employee order by salary desc))
+where rnow = 2) as secondhighestsalary
+from dual;
+```
