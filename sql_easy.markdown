@@ -43,3 +43,44 @@ having count(id) > 1;
 select p.FirstName, p.LastName, a.City, a.State
 from Person p left join Address a on p.PersonId = a.PersonId;
 ```
+
+### 181. Employees Earning More Than Their Managers
+```sql
+select p1.Name as Employee
+from Employee p1 left join Employee p2 on p1.ManagerId = p2.Id
+where p1.Salary > p2.Salary
+```
+
+### 183. Customers Who Never Order
+```sql
+select Name as Customers
+from Customers
+where Id not in (select CustomerId from Orders)
+```
+
+### 596. Classes More Than 5 Students
+```sql
+select class
+from courses
+group by class
+having count(distinct student) >= 5
+```
+
+### 197. Rising Temperature
+```sql
+select w2.id
+from weather w1 left join weather w2 on w2.recorddate - w1.recorddate = 1
+where w1.temperature < w2.temperature;
+```
+
+### 184. Department Highest Salary
+```sql
+Select d.Name as Department, e.Name as Employee, Salary
+from Employee e
+join Department d
+on e.DepartmentId = d.Id
+where (e.DepartmentId, e.Salary) in 
+(select DepartmentId, max(Salary)
+from Employee
+group by DepartmentId);
+```
