@@ -93,3 +93,10 @@ from (select salary, rownum as rnow
 where rnow = 2) as secondhighestsalary
 from dual;
 ```
+
+```sql
+select max(salary) as secondhighestsalary
+from (select salary, dense_rank() over(order by salary desc) as dense_rank
+      from employee)
+where dense_rank = 2;
+```
