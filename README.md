@@ -8,3 +8,4 @@ Leet Code Practice Problems
 
 ### Oracle SQL
 * [Easy](https://github.com/lumi-huang/leetcode/blob/master/sql_easy.markdown)
+* [Medium](https://github.com/lumi-huang/leetcode/blob/master/sql_medium.markdown)
