@@ -19,3 +19,13 @@ select (case when mod(id, 2) = 1 and id != (select count(*) from seat) then id +
 from seat
 order by id;
 ```
+### 601. Human Traffic of Stadium
+```sql
+select distinct t1.id, to_char(t1.visit_date) as visit_date, t1.people
+from stadium t1, stadium t2, stadium t3
+where t1.people >= 100 and t2.people >= 100 and t3.people >= 100
+    and ((t1.id = t2.id - 1 and t1.id = t3.id - 2) or
+         (t1.id = t2.id + 1 and t1.id = t3.id - 1) or
+         (t1.id = t2.id + 2 and t1.id = t3.id + 1))
+order by t1.id;
+```
