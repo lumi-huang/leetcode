@@ -29,3 +29,12 @@ where t1.people >= 100 and t2.people >= 100 and t3.people >= 100
          (t1.id = t2.id + 2 and t1.id = t3.id + 1))
 order by t1.id;
 ```
+
+### 185. Department Top Three Salaries
+```sql
+select department, employee, salary
+from
+(select d.name department, e.name employee, e.salary, dense_rank() over (partition by e.departmentid order by e.salary desc) as rank
+from employee e inner join department d on e.departmentid = d.id)
+where rank <= 3;
+```
