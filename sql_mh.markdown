@@ -38,3 +38,14 @@ from
 from employee e inner join department d on e.departmentid = d.id)
 where rank <= 3;
 ```
+
+### 262. Trips and Users
+```sql
+select request_at as day, cast((count(case when status = 'cancelled_by_client' or status = 'cancelled_by_driver' then 1 end) / count(*)) as decimal(10, 2)) as cancellation_rate
+from trips
+where client_id in (select users_id from users where banned = 'No')
+    and driver_id in (select users_id from users where banned = 'No')
+    and request_at between '2013-10-01' and '2013-10-03'
+group by request_at
+order by request_at;
+```
