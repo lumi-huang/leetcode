@@ -98,3 +98,23 @@ class Solution(object):
                   for r in range(len(grid))
                   for c in range(len(grid[0]))))
 ```
+
+###
+```python
+class Solution:
+    def findCircleNum(self, M: List[List[int]]) -> int:
+        def dfs(i):
+            seen[i] = 1
+            for j in range(len(M)):
+                if seen[j] == 0 and M[i][j] == 1:
+                    dfs(j)
+        
+        seen = [0]*len(M)
+        circle = 0
+        for i in range(len(M)):
+            if seen[i] == 0:
+                circle += 1
+                dfs(i)
+        
+        return circle
+```
