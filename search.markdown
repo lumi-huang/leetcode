@@ -167,6 +167,7 @@ class Solution:
             return []
             
         def dfs(visited,i,j):
+            #water flow to this ocean
             visited[i][j] = 1
             for x,y in [(i+1, j), (i-1, j), (i, j-1), (i, j+1)]:
                 if not(0 <= x < r and 0 <= y < c) or matrix[i][j] > matrix[x][y] or visited[x][y]:
@@ -177,6 +178,7 @@ class Solution:
         c = len(matrix[0])
         result = []
         
+        #use two matrix to keep track of water flow
         pacific = [[0 for i in range (c)]for j in range (r)]
         atlantic = [[0 for i in range(c)] for j in range(r)]
 
