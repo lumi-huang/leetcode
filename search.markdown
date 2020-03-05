@@ -1,4 +1,5 @@
 
+## Breadth-First Search (BFS)
 ### 1091. Shortest Path in Binary Matrix
 ```python
 class Solution:
@@ -58,6 +59,7 @@ class Solution:
         return 0
 ```
 
+## Depth-First Search  
 ### 695. Max Area of Island
 ```python
 class Solution(object):
@@ -99,7 +101,7 @@ class Solution(object):
                   for c in range(len(grid[0]))))
 ```
 
-###
+### 547. Friend Circles
 ```python
 class Solution:
     def findCircleNum(self, M: List[List[int]]) -> int:
