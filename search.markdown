@@ -59,7 +59,7 @@ class Solution:
         return 0
 ```
 
-## **Depth-First Search**   
+## **Depth-First Search (DFS)**   
 ### 695. Max Area of Island
 ```python
 class Solution(object):
