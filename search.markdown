@@ -1,5 +1,5 @@
 
-## Breadth-First Search (BFS)
+## **Breadth-First Search (BFS)**  
 ### 1091. Shortest Path in Binary Matrix
 ```python
 class Solution:
@@ -59,7 +59,7 @@ class Solution:
         return 0
 ```
 
-## Depth-First Search  
+## **Depth-First Search**   
 ### 695. Max Area of Island
 ```python
 class Solution(object):
