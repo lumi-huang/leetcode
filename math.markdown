@@ -52,7 +52,7 @@ class Solution:
             n //= 26
         return output[::-1]
 ```
-using recursive
+using recursion
 ```python
 class Solution:
     def convertToTitle(self, n: int) -> str:
@@ -61,6 +61,7 @@ class Solution:
 ```
 
 ### 172. Factorial Trailing Zeroes
+using while loop
 ```python
 class Solution:
     def trailingZeroes(self, n: int) -> int:
@@ -70,7 +71,7 @@ class Solution:
             n = n//5
         return five
 ```
-
+using recursion
 ```python
 class Solution:
     def trailingZeroes(self, n: int) -> int:
