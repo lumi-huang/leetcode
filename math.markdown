@@ -36,3 +36,18 @@ class Solution:
             p -= 1
         return output
 ```
+
+### 168. Excel Sheet Column Title
+```python
+class Solution:
+    def convertToTitle(self, n: int) -> str:
+        
+        words = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        output = ""
+        
+        while n > 0:
+            n -= 1
+            output += words[n%26]
+            n //= 26
+        return output[::-1]
+```
