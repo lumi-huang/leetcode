@@ -71,3 +71,9 @@ class Solution:
         return five
 ```
 
+```python
+class Solution:
+    def trailingZeroes(self, n: int) -> int:
+        return self.trailingZeroes(n//5) + n//5 if n > 0 else 0
+```
+
