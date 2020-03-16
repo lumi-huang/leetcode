@@ -17,7 +17,7 @@ class Solution:
             
 ```
 
-### 
+### 504. Base 7
 ```python
 class Solution:
     def convertToBase7(self, num: int) -> str:
