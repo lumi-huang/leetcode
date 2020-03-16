@@ -59,3 +59,15 @@ class Solution:
         
         return self.convertToTitle((n-1)//26) + chr(ord('A') + (n-1)%26) if n>0 else ""
 ```
+
+### 172. Factorial Trailing Zeroes
+```python
+class Solution:
+    def trailingZeroes(self, n: int) -> int:
+        five = 0
+        while n > 0:
+            five += n//5
+            n = n//5
+        return five
+```
+
