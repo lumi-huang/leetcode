@@ -38,6 +38,7 @@ class Solution:
 ```
 
 ### 168. Excel Sheet Column Title
+using while loop
 ```python
 class Solution:
     def convertToTitle(self, n: int) -> str:
@@ -50,4 +51,11 @@ class Solution:
             output += words[n%26]
             n //= 26
         return output[::-1]
+```
+using recursive
+```python
+class Solution:
+    def convertToTitle(self, n: int) -> str:
+        
+        return self.convertToTitle((n-1)//26) + chr(ord('A') + (n-1)%26) if n>0 else ""
 ```
