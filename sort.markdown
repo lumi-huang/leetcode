@@ -6,6 +6,25 @@ class Solution:
         return(sorted(nums)[-k])
 ```
 
+```python
+class Solution(object):
+    def findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        for j in range(1, len(nums)):
+            key = nums[j]
+            i = j-1
+            while i>=0 and nums[i] > key:
+                nums[i+1] = nums[i]
+                i = i-1
+            nums[i+1] = key
+        
+        return(nums[-k])
+```
+
 ### 347. Top K Frequent Elements
 ```python
 class Solution:
