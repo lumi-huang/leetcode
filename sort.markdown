@@ -27,17 +27,20 @@ class Solution(object):
 
 ### 347. Top K Frequent Elements
 ```python
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        freq = {}
-        for i in nums:
-            if i in freq:
-                freq[i] += 1
-            else:
-                freq[i] = 1
-        sorted_freq = dict(sorted(freq.items(), key=operator.itemgetter(1),reverse=True))
-        return(list(sorted_freq.keys())[0:k])
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        counter = Counter(nums)
+        key = []
+        for c,v in counter.most_common():
+            key.append(c)
+        return key[:k]
 ```
+
 
 ### 451. Sort Characters By Frequency
 
