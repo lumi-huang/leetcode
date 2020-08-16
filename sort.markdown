@@ -65,7 +65,8 @@ class Solution:
         return("".join(c*n for c, n in sorted(hmap.items(), key=operator.itemgetter(1), reverse=True)))
 ```
 
-### 75. Sort Colors
+### 75. Sort Colors. 
+insertion sort solution
 ```python
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
@@ -80,4 +81,31 @@ class Solution:
             nums[i], nums[min_ind] = nums[min_ind], nums[i]
         return nums
     
+```
+quick sort solution
+```python
+class Solution(object):
+    def sortColors(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        
+        self.quick_sort(nums, 0, len(nums)-1)
+        
+    def quick_sort(self, nums, p, r):
+        if p < r:
+            q = self.partition(nums, p, r)
+            self.quick_sort(nums, p , q-1)
+            self.quick_sort(nums, q+1, r)
+        
+    def partition(self, nums, p, r):
+        x = nums[r]
+        i = p-1
+        for j in range(p, r):
+            if nums[j] <= x:
+                i += 1
+                nums[j], nums[i] = nums[i], nums[j]
+        nums[i+1], nums[r] = nums[r], nums[i+1]
+        return(i+1)
 ```
