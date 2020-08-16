@@ -34,11 +34,11 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        counter = Counter(nums)
+        c = collections.Counter(nums).most_common(k)
         key = []
-        for c,v in counter.most_common():
-            key.append(c)
-        return key[:k]
+        for k, v in c:
+            key.append(k)
+        return(key)
 ```
 
 
