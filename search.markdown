@@ -1,16 +1,40 @@
 
 ## **Breadth-First Search (BFS)**  
+  
+  
+### 199. Binary Tree Right Side View
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def rightSideView(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        res = []
+        if not root:
+            return []
+        
+        queue = collections.deque([root])
+        while queue:
+            res.append(queue[-1].val)
+            num_node = len(queue)
+            for _ in range(num_node):
+                node = queue.popleft()
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        return res
+```
+
 ### 1091. Shortest Path in Binary Matrix
-In an N by N square grid, each cell is either empty (0) or blocked (1).
-
-A clear path from top-left to bottom-right has length k if and only if it is composed of cells C_1, C_2, ..., C_k such that:
-
-Adjacent cells C_i and C_{i+1} are connected 8-directionally (ie., they are different and share an edge or corner)
-C_1 is at location (0, 0) (ie. has value grid[0][0])
-C_k is at location (N-1, N-1) (ie. has value grid[N-1][N-1])
-If C_i is located at (r, c), then grid[r][c] is empty (ie. grid[r][c] == 0).
-Return the length of the shortest such clear path from top-left to bottom-right.  If such a path does not exist, return -1.
-
 ```python
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
@@ -91,6 +115,41 @@ class Solution:
                         queue.append((trans_word, step+1))
                         wordList.remove(trans_word)
         return 0
+```
+
+### 102. Binary Tree Level Order Traversal. 
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        traversal = [] #return value
+        if not root:
+            return traversal
+        queue = collections.deque([root])
+        
+        while queue:
+            num_nodes = len(queue)
+            temp = [] #temp storage for each binary tree level
+            
+            for _ in range(num_nodes):
+                node = queue.popleft()
+                temp.append(node.val)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            traversal.append(temp)
+        
+        return traversal
 ```
 
 ## **Depth-First Search (DFS)**   
