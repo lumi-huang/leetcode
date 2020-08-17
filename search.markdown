@@ -152,6 +152,40 @@ class Solution(object):
         return traversal
 ```
 
+### 909. Snakes and Ladders
+```python
+class Solution(object):
+    def snakesAndLadders(self, board):
+        """
+        :type board: List[List[int]]
+        :rtype: int
+        """
+        
+        n = len(board)
+        visited = set()
+        
+        #given a square sum s, return board coor (r,c)
+        def get(s):
+            quot, rem = divmod(s-1, n)
+            r = n-1-quot
+            c = rem if r%2 != n%2 else n-1-rem
+            return r, c
+        
+        queue = collections.deque([(1,0)])
+        while queue:
+            s, d = queue.popleft()
+            if s == n*n: 
+                return d
+            for s2 in range(s+1, min(s+6, n*n)+1):
+                r, c = get(s2)
+                if board[r][c] != -1:
+                    s2 = board[r][c]
+                if s2 not in visited:
+                    visited.add(s2)
+                    queue.append((s2,d+1))
+        return -1
+```
+
 ## **Depth-First Search (DFS)**   
 ### 695. Max Area of Island
 ```python
