@@ -307,41 +307,30 @@ class Solution:
 ```python
 class Solution:
     def pacificAtlantic(self, matrix: List[List[int]]) -> List[List[int]]:
-        
+
         if not matrix or not matrix[0]:
             return []
-            
-        def dfs(visited,i,j):
-            #water flow to this ocean
-            visited[i][j] = 1
-            for x,y in [(i+1, j), (i-1, j), (i, j-1), (i, j+1)]:
-                if not(0 <= x < r and 0 <= y < c) or matrix[i][j] > matrix[x][y] or visited[x][y]:
-                    continue
-                dfs(visited, x, y)
-                        
+        
         r = len(matrix)
         c = len(matrix[0])
-        result = []
         
-        #use two matrix to keep track of water flow
-        pacific = [[0 for i in range (c)]for j in range (r)]
-        atlantic = [[0 for i in range(c)] for j in range(r)]
-
+        to_pacific = set()
+        to_atlantic = set()
+        
+        def dfs(ocean, i, j):
+            ocean.add((i,j))
+            for x,y in [(i-1,j), (i+1,j), (i,j-1), (i,j+1)]:
+                if not(0<=x<r and 0<=y<c and (x,y) not in ocean and matrix[x][y]>=matrix[i][j]):
+                    continue
+                dfs(ocean,x,y)
+        
         for i in range(r):
-            #water flow to pacific ocean
-            dfs(pacific, i, 0)
-            #water flow to atlantic ocean
-            dfs(atlantic, i, c-1)
-            
+            dfs(to_pacific, i, 0)
+            dfs(to_atlantic, i, c-1)
+        
         for j in range(c):
-            #water flow to pacific ocean
-            dfs(pacific, 0, j)
-            #water flow to atlantic ocean
-            dfs(atlantic, r-1, j)
+            dfs(to_pacific, 0, j)
+            dfs(to_atlantic, r-1, j)
         
-        for i in range(r):
-            for j in range(c):
-                if pacific[i][j] and atlantic[i][j]:
-                    result.append([i,j])
-        return result
+        return to_pacific & to_atlantic
 ```
