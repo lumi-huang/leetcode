@@ -248,6 +248,26 @@ class Solution:
         return circle
 ```
 
+```python
+class Solution:
+    def findCircleNum(self, M: List[List[int]]) -> int:
+        seen = set()
+        circle = 0
+        
+        def dfs(i):
+            seen.add(i)
+            for j in range(len(M)):
+                if j not in seen and M[i][j] == 1:
+                    dfs(j)
+            
+        
+        for i in range(len(M)):
+            if i not in seen:
+                circle += 1
+                dfs(i)
+        return circle
+```
+
 ### 130. Surrounded Regions
 ```python
 class Solution:
