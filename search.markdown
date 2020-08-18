@@ -275,34 +275,32 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+        
         if not board or not board[0]:
             return
+        
+        #if o is on the boarder, set to #
+        #then, do dfs so that all o connected with it are not completely surrounded by x
         
         r = len(board)
         c = len(board[0])
         
-        def dfs(i, j):
-            if not (0 <= i < r and 0 <= j < c):
-                return
-            if board[i][j] == 'O':
-                #if not visited
-                board[i][j] = '#'
-                dfs(i+1, j), dfs(i-1, j), dfs(i, j+1), dfs(i, j-1)
+        def dfs(i,j):
+            if 0<=i<r and 0<=j<c and board[i][j] == "O":
+                board[i][j] = "#"
+                dfs(i+1,j), dfs(i-1,j), dfs(i,j-1), dfs(i,j+1)
         
-        #search 'O' that are located at the boundary of the board
         for i in range(r):
-            dfs(i, 0)
-            dfs(i, c-1)
+            dfs(i,0), dfs(i,c-1)
         for j in range(c):
-            dfs(0, j)
-            dfs(r-1, j)
+            dfs(0,j), dfs(r-1,j)
         
-        for i in range(r):
-            for j in range(c):
-                if board[i][j] == 'O':
-                    board[i][j] = 'X'
-                elif board[i][j] == '#':
-                    board[i][j] = 'O'
+        for x in range(r):
+            for y in range(c):
+                if board[x][y] == "O":
+                    board[x][y] = "X"
+                elif board[x][y] == "#":
+                    board[x][y] = "O"
 ```
 
 ### 417. Pacific Atlantic Water Flow
