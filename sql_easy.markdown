@@ -77,6 +77,15 @@ from Employee
 group by DepartmentId);
 ```
 
+### 185. Department Top Three Salaries
+```sql
+select d.name as department, t.name as employee, t.salary as salary
+from
+(select name, departmentid, salary, dense_rank() over (partition by departmentid order by salary desc) as rank
+from employee) t inner join department d on t.departmentid = d.id
+where t.rank <=3
+```
+
 ### 197. Rising Temperature
 ```sql
 select w1.id
