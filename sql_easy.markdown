@@ -68,9 +68,9 @@ having count(distinct student) >= 5
 
 ### 197. Rising Temperature
 ```sql
-select w2.id
-from weather w1 left join weather w2 on w2.recorddate - w1.recorddate = 1
-where w1.temperature < w2.temperature;
+select w1.id
+from weather w1 inner join weather w2 on w1.recordDate-1 = w2.recordDate
+where w1.temperature > w2.temperature;
 ```
 
 ### 184. Department Highest Salary
