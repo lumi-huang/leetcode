@@ -35,6 +35,19 @@ BEGIN
 END;
 ```
 
+### 178. Rank Scores
+```sql
+select score, dense_rank() over (order by score desc) as rank
+from scores;
+```
+
+### 180. Consecutive Numbers
+```sql
+select distinct l1.num as ConsecutiveNums
+from logs l1, logs l2, logs l3
+where l1.id = l2.id - 1 and l2.id = l3.id - 1 and l1.num = l2.num and l2.num = l3.num;
+```
+
 ### 181. Employees Earning More Than Their Managers
 ```sql
 select p1.Name as Employee
@@ -93,6 +106,19 @@ from weather w1 inner join weather w2 on w1.recordDate-1 = w2.recordDate
 where w1.temperature > w2.temperature;
 ```
 
+
+### 262. Trips and Users
+```sql
+select request_at as day, cast((count(case when status = 'cancelled_by_client' or status = 'cancelled_by_driver' then 1 end) / count(*)) as decimal(10, 2)) as cancellation_rate
+from trips
+where client_id in (select users_id from users where banned = 'No')
+    and driver_id in (select users_id from users where banned = 'No')
+    and request_at between '2013-10-01' and '2013-10-03'
+group by request_at
+order by request_at;
+```
+
+
 ### 595. Big Countries
 ```sql
 select name, population, area
@@ -106,6 +132,17 @@ select class
 from courses
 group by class
 having count(distinct student) >= 5
+```
+
+### 601. Human Traffic of Stadium
+```sql
+select distinct t1.id, to_char(t1.visit_date) as visit_date, t1.people
+from stadium t1, stadium t2, stadium t3
+where t1.people >= 100 and t2.people >= 100 and t3.people >= 100
+    and ((t1.id = t2.id - 1 and t1.id = t3.id - 2) or
+         (t1.id = t2.id + 1 and t1.id = t3.id - 1) or
+         (t1.id = t2.id + 2 and t1.id = t3.id + 1))
+order by t1.id;
 ```
 
 ### 620. Not Boring Movies
