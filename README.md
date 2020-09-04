@@ -7,4 +7,4 @@ Leet Code Practice Problems
 * [Search](https://github.com/lumi-huang/leetcode/blob/master/search.markdown)
 * [Math](https://github.com/lumi-huang/leetcode/blob/master/math.markdown)
 
-### [Oracle SQL](https://github.com/lumi-huang/leetcode/blob/master/sql.markdown)
+### [SQL](https://github.com/lumi-huang/leetcode/blob/master/sql.markdown)
