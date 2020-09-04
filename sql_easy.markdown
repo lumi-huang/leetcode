@@ -99,6 +99,14 @@ group by class
 having count(distinct student) >= 5
 ```
 
+### 620. Not Boring Movies
+```sql
+select *
+from cinema
+where mod(id, 2) = 1 and description != 'boring'
+order by rating desc; 
+```
+
 ### 627. Swap Salary
 ```sql
 UPDATE salary
@@ -107,14 +115,6 @@ SET
       when 'm' then 'f'
       else 'm'
   end;
-```
-
-### 620. Not Boring Movies
-```sql
-select *
-from cinema
-where mod(id, 2) = 1 and description != 'boring'
-order by rating desc; 
 ```
 
 ### 1179. Reformat Department Table. 
