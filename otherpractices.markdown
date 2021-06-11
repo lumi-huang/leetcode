@@ -1,4 +1,4 @@
-## **Other**  
+## **Other Python Practices**  
   
  
 ### 941. Valid Mountain Array
