@@ -1,4 +1,8 @@
-# 941. Valid Mountain Array
+## **Other**  
+  
+ 
+### 941. Valid Mountain Array
+```python
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:
         if len(arr)<3:
@@ -11,4 +15,5 @@ class Solution:
                 down+=1
             else:
                 return False
-        return up>0 and down >0 and (up+down == len(arr)-1)
+        return up>0 and down >0 and (up+down == len(arr)-1)\
+```
