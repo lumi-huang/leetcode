@@ -8,6 +8,13 @@ class Solution:
         return s==s[::-1]
 ```
 
+### 242. Valid Anagram
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s)==sorted(t)
+```
+
 ### 941. Valid Mountain Array
 ```python
 class Solution:
