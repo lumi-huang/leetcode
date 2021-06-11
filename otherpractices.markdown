@@ -24,3 +24,16 @@ class Solution:
                 return False
         return up>0 and down >0 and (up+down == len(arr)-1)
 ```
+
+### 1037. Valid Boomerang
+```python
+class Solution:
+    def isBoomerang(self, points: List[List[int]]) -> bool:
+        x1=points[0][0]
+        x2=points[1][0]
+        x3=points[2][0]
+        y1=points[0][1]
+        y2=points[1][1]
+        y3=points[2][1]
+        return (x2-x1)*(y3-y2)-(x3-x2)*(y2-y1)!=0
+```
