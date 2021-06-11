@@ -15,6 +15,12 @@ class Solution:
         return sorted(s)==sorted(t)
 ```
 
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return all(s.count(i) == t.count(i) for i in 'abcdefghijklmnopqrstuvwxyz')
+```
+
 ### 941. Valid Mountain Array
 ```python
 class Solution:
