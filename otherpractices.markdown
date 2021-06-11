@@ -1,6 +1,13 @@
 ## **Other Python Practices**  
-  
- 
+
+### 125. Valid Palindrome
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s=re.sub('[^a-z\d]','',s.lower())
+        return s==s[::-1]
+```
+
 ### 941. Valid Mountain Array
 ```python
 class Solution:
