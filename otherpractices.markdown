@@ -15,5 +15,5 @@ class Solution:
                 down+=1
             else:
                 return False
-        return up>0 and down >0 and (up+down == len(arr)-1)\
+        return up>0 and down >0 and (up+down == len(arr)-1)
 ```
