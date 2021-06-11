@@ -45,3 +45,16 @@ class Solution:
         (x1, y1), (x2, y2), (x3, y3) = points
         return (x2-x1)*(y3-y2)-(x3-x2)*(y2-y1)!=0
 ```
+
+### 1207. Unique Number of Occurrences
+``` python
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        hmap={}
+        for i in arr:
+            try:
+                hmap[i] += 1
+            except:
+                hmap[i] = 1
+        return len(hmap) == len(set(hmap.values()))
+```
