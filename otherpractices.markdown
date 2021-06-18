@@ -29,6 +29,20 @@ class Solution:
                     for r, row in enumerate(matrix)
                    for c, val in enumerate(row))
 ```
+```python
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        for r in range(1, len(matrix)):
+            for c in range(1, len(matrix[0])):
+                    if matrix[r][c] != matrix[r-1][c-1]: return False
+        
+        return True
+```
+```
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        return not any(matrix[r][c] != matrix[r-1][c-1] for r in range(1, len(matrix)) for c in range(1, len(matrix[0])))
+```
 
 ### 941. Valid Mountain Array
 ```python
