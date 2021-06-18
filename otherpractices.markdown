@@ -110,4 +110,14 @@ class Solution:
             out += char[i:i+3] + "."
         return out[::-1][1:]
 ```
+```python
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        s = str(n)
+        out = []
+        while s:
+            out.append(s[-3:])
+            s = s[:-3]
+        return '.'.join(out[::-1])
+```
 
