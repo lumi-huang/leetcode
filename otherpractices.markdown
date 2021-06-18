@@ -100,3 +100,14 @@ class Solution:
         return any(len(t)==3 and t[0]%2==1 and t[1]%2==1 and t[2]%2==1 for t in zip(arr, arr[1:], arr[2:]))
 ```
 
+### 1556. Thousand Separator
+```python
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        char = str(n)[::-1]
+        out = ""
+        for i in range(0, len(char), 3):
+            out += char[i:i+3] + "."
+        return out[::-1][1:]
+```
+
