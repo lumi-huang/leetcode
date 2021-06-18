@@ -21,6 +21,15 @@ class Solution:
         return all(s.count(i) == t.count(i) for i in 'abcdefghijklmnopqrstuvwxyz')
 ```
 
+### 766. Toeplitz Matrix
+```python
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        return all(r==0 or c==0 or matrix[r][c]==matrix[r-1][c-1]
+                    for r, row in enumerate(matrix)
+                   for c, val in enumerate(row))
+```
+
 ### 941. Valid Mountain Array
 ```python
 class Solution:
@@ -58,3 +67,22 @@ class Solution:
                 hmap[i] = 1
         return len(hmap) == len(set(hmap.values()))
 ```
+
+### 1550. Three Consecutive Odds
+```python
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        count=0
+        for num in arr:
+            if mod(num, 2)==1:
+                count+=1
+                if count==3: return True
+            else: count=0
+        return False
+```
+```python
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        return any(len(t)==3 and t[0]%2==1 and t[1]%2==1 and t[2]%2==1 for t in zip(arr, arr[1:], arr[2:]))
+```
+
