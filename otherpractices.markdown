@@ -1,5 +1,48 @@
 ## **Other Python Practices**  
 
+### 21. Merge Two Sorted Lists
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        out = cur = ListNode()
+        if l1 == None:
+            return l2
+        if l2 == None:
+            return l1
+        while l1 and l2:
+            if l1.val <= l2.val:
+                cur.next = l1
+                cur = cur.next
+                l1 = l1.next
+            else:
+                cur.next = l2
+                cur = cur.next
+                l2 = l2.next
+        if l1 == None:
+            cur.next=l2
+        if l2 == None:
+            cur.next=l1
+        return out.next
+```
+```python
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if l1==None:
+            return l2
+        elif l2==None:
+            return l1
+        
+        if l1.val <= l2.val:
+            return ListNode(l1.val, self.mergeTwoLists(l1.next, l2))
+        else:
+            return ListNode(l2.val, self.mergeTwoLists(l1, l2.next))
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
