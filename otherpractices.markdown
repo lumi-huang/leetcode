@@ -5,17 +5,17 @@
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         out = cur = ListNode()
-        carry=0
-        while l1 or l2 or carry>0:
+        s = 0
+        while l1 or l2 or s>0:
             if l1:
-                carry+=l1.val
+                s+=l1.val
                 l1=l1.next
             if l2:
-                carry+=l2.val
+                s+=l2.val
                 l2=l2.next
-            cur.next=ListNode(carry % 10)
+            cur.next=ListNode(s%10)
             cur=cur.next
-            carry=carry//10
+            s=s//10
         return out.next
 ```
 
