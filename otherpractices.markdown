@@ -19,6 +19,22 @@ class Solution:
         return out.next
 ```
 
+### 3. Longest Substring Without Repeating Characters
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        out = 0
+        temp = ""
+        for char in s:
+            if char in temp:
+                out = max(out, len(temp))
+                temp=temp[temp.index(char)+1:]+char
+            else:
+                temp += char
+        out = max(out,len(temp))
+        return out
+```
+
 ### 21. Merge Two Sorted Lists
 ```python
 # Definition for singly-linked list.
