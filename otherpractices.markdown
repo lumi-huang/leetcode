@@ -147,6 +147,21 @@ class Solution:
             return -1
 ```
 
+### 35. Search Insert Position
+```python
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        if target in nums:
+            return nums.index(target)
+        
+        if nums[-1]<target:
+            return len(nums)
+        
+        for i, j in enumerate(nums):
+            if j>target:
+                return i
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
