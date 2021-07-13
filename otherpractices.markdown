@@ -108,6 +108,21 @@ class Solution:
             return ListNode(l2.val, self.mergeTwoLists(l1, l2.next))
 ```
 
+### 27. Remove Element
+```python
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i=0
+        j=0
+        while j<len(nums):
+            if nums[j]!=val:
+                nums[i]=nums[j]
+                i+=1
+            j+=1
+        return i
+                
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
