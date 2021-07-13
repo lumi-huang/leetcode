@@ -122,7 +122,22 @@ class Solution:
         return i
                 
 ```
+```python
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        while val in nums:
+            nums.remove(val)
+        return len(nums)
+```
 
+### 28. Implement strStr()
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if not needle: return 0
+        if needle not in haystack: return -1
+        return haystack.index(needle)
+```
 ### 125. Valid Palindrome
 ```python
 class Solution:
