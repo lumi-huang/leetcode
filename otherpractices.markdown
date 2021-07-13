@@ -35,6 +35,36 @@ class Solution:
         return out
 ```
 
+### 5. Longest Palindromic Substring
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        head=0
+        maximum=1
+        
+        for i in range(1,len(s)):
+            low=i-1
+            high=i
+            while low>=0 and high<len(s) and s[low]==s[high]:
+                if high-low+1>maximum:
+                    head=low
+                    maximum=high-low+1
+                low-=1
+                high+=1
+                
+            low=i-1
+            high=i+1
+            while low>=0 and high<len(s) and s[low]==s[high]:
+                if high-low+1>maximum:
+                    head=low
+                    maximum=high-low+1
+                low-=1
+                high+=1
+        
+        return s[head:head+maximum]
+    
+   ```
+
 ### 21. Merge Two Sorted Lists
 ```python
 # Definition for singly-linked list.
