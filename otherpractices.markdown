@@ -138,6 +138,15 @@ class Solution:
         if needle not in haystack: return -1
         return haystack.index(needle)
 ```
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        try:
+            return haystack.index(needle)
+        except:
+            return -1
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
