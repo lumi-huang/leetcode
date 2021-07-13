@@ -6,5 +6,6 @@ Leet Code Practice Problems
 * [Sort](https://github.com/lumi-huang/leetcode/blob/master/sort.markdown)
 * [Search](https://github.com/lumi-huang/leetcode/blob/master/search.markdown)
 * [Math](https://github.com/lumi-huang/leetcode/blob/master/math.markdown)
+* [Other Practices](https://github.com/lumi-huang/leetcode/blob/master/otherpractices.markdown)
 
 ### [SQL](https://github.com/lumi-huang/leetcode/blob/master/sql.markdown)
