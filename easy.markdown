@@ -145,15 +145,12 @@ class Solution:
         return s==s[::-1]
 ```
 
-
-
 ### 242. Valid Anagram
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return sorted(s)==sorted(t)
 ```
-
 ```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
@@ -199,6 +196,7 @@ class Solution:
                 return False
         return up>0 and down >0 and (up+down == len(arr)-1)
 ```
+
 ### 1037. Valid Boomerang
 ```python
 class Solution:
@@ -206,3 +204,56 @@ class Solution:
         (x1, y1), (x2, y2), (x3, y3) = points
         return (x2-x1)*(y3-y2)-(x3-x2)*(y2-y1)!=0
 ```
+
+### 1207. Unique Number of Occurrences
+``` python
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        hmap={}
+        for i in arr:
+            try:
+                hmap[i] += 1
+            except:
+                hmap[i] = 1
+        return len(hmap) == len(set(hmap.values()))
+```
+
+### 1550. Three Consecutive Odds
+```python
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        count=0
+        for num in arr:
+            if mod(num, 2)==1:
+                count+=1
+                if count==3: return True
+            else: count=0
+        return False
+```
+```python
+class Solution:
+    def threeConsecutiveOdds(self, arr: List[int]) -> bool:
+        return any(len(t)==3 and t[0]%2==1 and t[1]%2==1 and t[2]%2==1 for t in zip(arr, arr[1:], arr[2:]))
+```
+
+### 1556. Thousand Separator
+```python
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        char = str(n)[::-1]
+        out = ""
+        for i in range(0, len(char), 3):
+            out += char[i:i+3] + "."
+        return out[::-1][1:]
+```
+```python
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        s = str(n)
+        out = []
+        while s:
+            out.append(s[-3:])
+            s = s[:-3]
+        return '.'.join(out[::-1])
+```
+
