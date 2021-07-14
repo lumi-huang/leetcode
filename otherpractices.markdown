@@ -183,6 +183,25 @@ class Solution:
         return len(s.strip().split(' ')[-1])
 ```
 
+### 66. Plus One
+```python
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        digits[-1]=carry=digits[-1]+1
+        i=-1
+        maxlength=-1*len(digits)
+        while carry==10 and i>=maxlength:
+            digits[i]=0
+            i-=1
+            if i<maxlength:
+                digits=[1]+digits
+                return digits
+            carry=digits[i]+1
+            digits[i]+=1
+        return digits
+            
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
