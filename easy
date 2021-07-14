@@ -1,0 +1,201 @@
+## **Other Python Practices - Easy**  
+
+### 21. Merge Two Sorted Lists
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        out = cur = ListNode()
+        if l1 == None:
+            return l2
+        if l2 == None:
+            return l1
+        while l1 and l2:
+            if l1.val <= l2.val:
+                cur.next = l1
+                cur = cur.next
+                l1 = l1.next
+            else:
+                cur.next = l2
+                cur = cur.next
+                l2 = l2.next
+        if l1 == None:
+            cur.next=l2
+        if l2 == None:
+            cur.next=l1
+        return out.next
+```
+```python
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if l1==None:
+            return l2
+        elif l2==None:
+            return l1
+        
+        if l1.val <= l2.val:
+            return ListNode(l1.val, self.mergeTwoLists(l1.next, l2))
+        else:
+            return ListNode(l2.val, self.mergeTwoLists(l1, l2.next))
+```
+
+### 27. Remove Element
+```python
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        i=0
+        j=0
+        while j<len(nums):
+            if nums[j]!=val:
+                nums[i]=nums[j]
+                i+=1
+            j+=1
+        return i
+                
+```
+```python
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        while val in nums:
+            nums.remove(val)
+        return len(nums)
+```
+
+### 28. Implement strStr()
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if not needle: return 0
+        if needle not in haystack: return -1
+        return haystack.index(needle)
+```
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        try:
+            return haystack.index(needle)
+        except:
+            return -1
+```
+
+### 35. Search Insert Position
+```python
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        if target in nums:
+            return nums.index(target)
+        
+        if nums[-1]<target:
+            return len(nums)
+        
+        for i, j in enumerate(nums):
+            if j>target:
+                return i
+```
+
+### 58. Length of Last Word
+```python
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        s=s.rstrip()
+        if len(s)==0:
+            return 0
+        out=0
+        for char in s[::-1]:
+            if char!=" ":
+                out+=1
+            else:
+                return out
+        return out
+```
+```python
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.strip().split(' ')[-1])
+```
+
+### 66. Plus One
+```python
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        digits[-1]=carry=digits[-1]+1
+        i=-1
+        maxlength=-1*len(digits)
+        while carry==10 and i>=maxlength:
+            digits[i]=0
+            i-=1
+            if i<maxlength:
+                digits=[1]+digits
+                return digits
+            carry=digits[i]+1
+            digits[i]+=1
+        return digits
+            
+```
+
+### 125. Valid Palindrome
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s=re.sub('[^a-z\d]','',s.lower())
+        return s==s[::-1]
+```
+
+
+
+### 242. Valid Anagram
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s)==sorted(t)
+```
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return all(s.count(i) == t.count(i) for i in 'abcdefghijklmnopqrstuvwxyz')
+```
+
+### 766. Toeplitz Matrix
+```python
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        return all(r==0 or c==0 or matrix[r][c]==matrix[r-1][c-1]
+                    for r, row in enumerate(matrix)
+                   for c, val in enumerate(row))
+```
+```python
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        for r in range(1, len(matrix)):
+            for c in range(1, len(matrix[0])):
+                    if matrix[r][c] != matrix[r-1][c-1]: return False
+        
+        return True
+```
+```python
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        return not any(matrix[r][c] != matrix[r-1][c-1] for r in range(1, len(matrix)) for c in range(1, len(matrix[0])))
+```
+
+### 941. Valid Mountain Array
+```python
+class Solution:
+    def validMountainArray(self, arr: List[int]) -> bool:
+        if len(arr)<3:
+            return False
+        up=down=0
+        for i in range(len(arr)-1):
+            if arr[i]<arr[i+1] and down==0:
+                up+=1
+            elif arr[i]>arr[i+1] and up>0:
+                down+=1
+            else:
+                return False
+        return up>0 and down >0 and (up+down == len(arr)-1)
+```
