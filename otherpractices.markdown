@@ -162,6 +162,27 @@ class Solution:
                 return i
 ```
 
+### 58. Length of Last Word
+```python
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        s=s.rstrip()
+        if len(s)==0:
+            return 0
+        out=0
+        for char in s[::-1]:
+            if char!=" ":
+                out+=1
+            else:
+                return out
+        return out
+```
+```python
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.strip().split(' ')[-1])
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
