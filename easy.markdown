@@ -144,6 +144,25 @@ class Solution:
         return bin(int(a,2)+int(b,2))[2:]
 ```
 
+### 69. Sqrt(x)
+```python
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        if x<2:
+            return x
+        left=1
+        right=x//2+1
+        while left<=right:
+            mid = (left + right)//2
+            if mid*mid == x:
+                return mid
+            if mid*mid > x:
+                right = mid-1
+            else:
+                left = mid+1
+        return left-1
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
