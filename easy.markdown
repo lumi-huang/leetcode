@@ -163,6 +163,19 @@ class Solution:
         return left-1
 ```
 
+### 70. Climbing Stairs
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n==1: return 1
+        a=1
+        b=1
+        for i in range(n-1):
+            f=a+b
+            a,b=b,f
+        return f
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
