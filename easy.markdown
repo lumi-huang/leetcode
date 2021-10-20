@@ -199,6 +199,22 @@ class Solution:
         return s==s[::-1]
 ```
 
+### 160. Intersection of Two Linked Lists
+```python
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        hmap={}
+        a = headA
+        b = headB
+        while a:
+            hmap[a] = a.val
+            a = a.next
+        while b:
+            if b in hmap:
+                return b
+            b = b.next
+```
+
 ### 242. Valid Anagram
 ```python
 class Solution:
