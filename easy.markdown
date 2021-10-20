@@ -203,6 +203,24 @@ class Solution:
                 curr = curr.next
         return head
 ```
+
+### 94. Binary Tree Inorder Traversal
+```python
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        stack=[]
+        curr=root
+        out=[]
+        while stack or curr:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+            curr = stack.pop()
+            out.append(curr.val)
+            curr = curr.right
+        return out
+```
+
 ### 100. Same Tree
 ```python
 class Solution:
