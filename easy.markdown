@@ -199,7 +199,7 @@ class Solution:
         return s==s[::-1]
 ```
 
-## 144. Binary Tree Preorder Traversal
+### 144. Binary Tree Preorder Traversal
 ```python
 class Solution:
     def tree(self, root, out):
