@@ -118,6 +118,21 @@ class Solution:
         return len(s.strip().split(' ')[-1])
 ```
 
+### 53. Maximum Subarray
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        if len(nums)==1: return nums[0]
+        temp=0
+        out=-99999
+        
+        for i in nums:
+            temp=max(i, temp+i)
+            if temp>out: out=temp
+                
+        return out
+```
+
 ### 66. Plus One
 ```python
 class Solution:
