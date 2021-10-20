@@ -216,6 +216,23 @@ class Solution:
         return out
 ```
 
+```python
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root: return []
+        out = []
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            out.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+        return out
+        
+```
+
 ### 160. Intersection of Two Linked Lists
 ```python
 class Solution:
