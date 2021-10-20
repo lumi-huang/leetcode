@@ -223,12 +223,12 @@ class Solution:
         out = []
         stack = [root]
         while stack:
-            node = stack.pop()
-            out.append(node.val)
-            if node.right:
-                stack.append(node.right)
-            if node.left:
-                stack.append(node.left)
+            curr = stack.pop()
+            out.append(curr.val)
+            if curr.right:
+                stack.append(curr.right)
+            if curr.left:
+                stack.append(curr.left)
         return out
         
 ```
