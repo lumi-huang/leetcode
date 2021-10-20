@@ -199,6 +199,23 @@ class Solution:
         return s==s[::-1]
 ```
 
+## 144. Binary Tree Preorder Traversal
+```python
+class Solution:
+    def tree(self, root, out):
+        if root:
+            out.append(root.val)
+            if root.left:
+                self.tree(root.left, out)
+            if root.right:
+                self.tree(root.right, out)
+        
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        out=[]
+        self.tree(root, out)
+        return out
+```
+
 ### 160. Intersection of Two Linked Lists
 ```python
 class Solution:
