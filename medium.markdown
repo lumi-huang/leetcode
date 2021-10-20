@@ -64,3 +64,10 @@ class Solution:
         return s[head:head+maximum]
     
 ```
+
+### 151. Reverse Words in a String
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return ' '.join(reversed(s.split()))
+```
