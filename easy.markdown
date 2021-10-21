@@ -258,17 +258,16 @@ class Solution(object):
 
 ### 108. Convert Sorted Array to Binary Search Tree
 ```python
-class Solution:  
-    def tree(self, nums):
-        if len(nums) == 0:
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        if len(nums)==0:
             return None
         mid = len(nums)//2
-        root = TreeNode(nums[mid])
-        root.left = self.tree(nums[:mid])
-        root.right = self.tree(nums[mid+1:])
+        root = TreeNode()
+        root.val = nums[mid]
+        root.left = self.sortedArrayToBST(nums[:mid])
+        root.right = self.sortedArrayToBST(nums[mid+1:])
         return root
-    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-        return self.tree(nums)
 ```
 
 ### 125. Valid Palindrome
