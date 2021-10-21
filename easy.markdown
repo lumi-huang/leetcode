@@ -235,6 +235,27 @@ class Solution:
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 ```
 
+### 101. Symmetric Tree
+```python
+class Solution(object):   
+    def mirror(self, root1, root2):
+        if not root1 and not root2:
+            return True
+        if not root1 or not root2:
+            return False
+        if root1.val != root2.val:
+            return False
+        return self.mirror(root1.left, root2.right) and self.mirror(root1.right, root2.left)
+        
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        return self.mirror(root, root)
+    
+```
+
 ### 125. Valid Palindrome
 ```python
 class Solution:
